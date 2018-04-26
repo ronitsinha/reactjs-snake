@@ -47,7 +47,7 @@ class Grid extends Component {
 
     this.addPlayer ();
 
-    if (!this.state.player.move(this.state.grid)) {
+    if (!this.state.player.move(this.state.grid, this.state.score)) {
       //game over
       this.restartGame();
     }

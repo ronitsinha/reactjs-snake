@@ -8,18 +8,18 @@ function Player (x, y){
 	this.tail = [];
 }
 
-Player.prototype.move = function (grid) {
+Player.prototype.move = function (grid, score) {
 	if (this.x + this.xspeed < Util.COLUMNS && this.x + this.xspeed >= 0) {
 		if (this.xspeed !== 0 && grid[this.y][this.x + this.xspeed].getState() !== 'tile-snake') {
 			this.x += this.xspeed;
 		} else if (this.xspeed !== 0 && grid[this.y][this.x + this.xspeed].getState() === 'tile-snake') {
-			alert ('You lose!');
+			alert ('You lose!\nYour score: ' + score);
 			this.xspeed = 0;
 			this.yspeed = 0;
 			return false;
 		}
 	} else {
-		alert ('You lose!');
+		alert ('You lose!\nYour score: ' + score);
 		this.xspeed = 0;
 		this.yspeed = 0;
 		return false;
@@ -29,13 +29,13 @@ Player.prototype.move = function (grid) {
 		if (this.yspeed !== 0 && grid[this.y + this.yspeed][this.x].getState() !== 'tile-snake') {
 			this.y += this.yspeed;
 		} else if (this.yspeed !== 0 && grid[this.y + this.yspeed][this.x].getState() === 'tile-snake') {
-			alert ('You lose!');
+			alert ('You lose!\nYour score: ' + score);
 			this.xspeed = 0;
 			this.yspeed = 0;
 			return false;
 		}
 	} else {
-		alert ('You lose!');
+		alert ('You lose!\nYour score: ' + score);
 		this.xspeed = 0;
 		this.yspeed = 0;
 		return false;
